@@ -18,10 +18,10 @@ __global__ void convolution2dGpu
 
     if((y >= half_size) && y < (src.rows - half_size)){
         if((x >= half_size) && (x < (src.cols - half_size))){
-            double sum = 0.0;
+            float sum = 0.0f;
             for (int dy = -half_size; dy <= half_size; dy++){
                 for (int dx = -half_size; dx <= half_size; dx++){
-                    sum += (src.ptr(y+dy)[x+dx] * kernel.ptr(dy+half_size)[dx+half_size]);
+                    sum = __fadd_rn(sum, __fmul_rn(src.ptr(y+dy)[x+dx], kernel.ptr(dy+half_size)[dx+half_size]));
                 }
             }
             dst.ptr(y)[x] = sum;

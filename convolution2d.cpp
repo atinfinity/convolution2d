@@ -12,7 +12,7 @@ void convolution2d
 	{
 		for (int x = half_size; x < (src.cols - half_size); x++)
 		{
-			double sum = 0.0;
+			float sum = 0.0f;
 			for (int dy = -half_size; dy <= half_size; dy++)
 			{
 				for (int dx = -half_size; dx <= half_size; dx++)
