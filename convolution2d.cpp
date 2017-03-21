@@ -12,12 +12,12 @@ void convolution2d
 	{
 		for (int x = half_size; x < (src.cols - half_size); x++)
 		{
-			double sum = 0.0;
+			float sum = 0.0f;
 			for (int dy = -half_size; dy <= half_size; dy++)
 			{
 				for (int dx = -half_size; dx <= half_size; dx++)
 				{
-					sum += (src.ptr<uchar>(y+dy)[x+dx] * kernel.ptr<float>(dy+half_size)[dx+half_size]);
+					sum += (kernel.ptr<float>(dy+half_size)[dx+half_size] * src.ptr<uchar>(y+dy)[x+dx]);
 				}
 			}
 			dst.ptr<uchar>(y)[x] = sum;
