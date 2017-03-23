@@ -26,7 +26,7 @@ __global__ void convolution2dGpu
             }
             dst.ptr(y)[x] = sum;
         }
-	}
+    }
 }
 
 void launch_convolution2dGpu
