@@ -4,6 +4,8 @@
 #include <opencv2/highgui.hpp>
 #include <iostream>
 
+//#define ENABLE_DISPLAY_IMAGE
+
 int main(int argc, const char* argv[])
 {
 	cv::Mat src = cv::imread("lena.jpg", cv::IMREAD_GRAYSCALE);
@@ -42,6 +44,7 @@ int main(int argc, const char* argv[])
 	// verify
 	verify(dst, d_dstGpu);
 
+#ifdef ENABLE_DISPLAY_IMAGE
 	// display image
 	cv::imshow("src", src);
 	cv::imshow("dst", dst);
@@ -50,6 +53,7 @@ int main(int argc, const char* argv[])
 
 	cv::waitKey(0);
 	cv::destroyAllWindows();
+#endif // ENABLE_DISPLAY_IMAGE
 
 	return 0;
 }
