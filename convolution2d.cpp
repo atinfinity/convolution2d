@@ -1,5 +1,10 @@
 #include "convolution2d.hpp"
 
+uchar clipCpu(float val)
+{
+	return (val < 0.0f) ? 0 : (val > 255.0f) ? 255 : (uchar)val;
+}
+
 void convolution2d
 (
 	const cv::Mat& src, 
@@ -20,7 +25,7 @@ void convolution2d
 					sum += (kernel.ptr<float>(dy+half_size)[dx+half_size] * src.ptr<uchar>(y+dy)[x+dx]);
 				}
 			}
-			dst.ptr<uchar>(y)[x] = sum;
+			dst.ptr<uchar>(y)[x] = clipCpu(sum);
 		}
 	}
 }

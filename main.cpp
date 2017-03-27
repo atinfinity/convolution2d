@@ -23,9 +23,9 @@ int main(int argc, const char* argv[])
 	cv::Mat kernel = 
 		(cv::Mat_<float>(kernel_size, kernel_size) 
 			<<
-			1.0f / 9, 1.0f / 9, 1.0f / 9,
-			1.0f / 9, 1.0f / 9, 1.0f / 9,
-			1.0f / 9, 1.0f / 9, 1.0f / 9
+			-1.0f, 0.0f, 1.0f,
+			-2.0f, 0.0f, 2.0f,
+			-1.0f, 0.0f, 1.0f
 		);
 
 	cv::cuda::GpuMat d_src(src);

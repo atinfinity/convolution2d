@@ -5,6 +5,11 @@
 #include <cuda_runtime.h>
 #include <device_launch_parameters.h>
 
+__device__ uchar clipGpu(float val)
+{
+    return (val < 0.0f) ? 0 : (val > 255.0f) ? 255 : (uchar)val;
+}
+
 __global__ void convolution2dGpu
 (
     const cv::cudev::PtrStepSz<uchar> src,
@@ -24,7 +29,7 @@ __global__ void convolution2dGpu
                     sum = __fadd_rn(sum, __fmul_rn(kernel.ptr(dy+half_size)[dx+half_size], src.ptr(y+dy)[x+dx]));
                 }
             }
-            dst.ptr(y)[x] = sum;
+            dst.ptr(y)[x] = clipGpu(sum);
         }
     }
 }
