@@ -1,4 +1,4 @@
-﻿#include "convolution2d.hpp"
+#include "convolution2d.hpp"
 #include "convolution2d.cuh"
 #include "utility.hpp"
 #include <opencv2/highgui.hpp>

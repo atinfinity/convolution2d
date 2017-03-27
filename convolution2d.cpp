@@ -1,4 +1,4 @@
-﻿#include "convolution2d.hpp"
+#include "convolution2d.hpp"
 
 void convolution2d
 (

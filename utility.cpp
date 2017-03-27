@@ -1,4 +1,4 @@
-﻿#include "utility.hpp"
+#include "utility.hpp"
 #include <iostream>
 
 void verify

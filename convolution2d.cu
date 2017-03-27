@@ -1,4 +1,4 @@
-﻿#include "convolution2d.cuh"
+#include "convolution2d.cuh"
 
 #include <opencv2/core/cuda/common.hpp>
 #include <opencv2/cudev.hpp>
