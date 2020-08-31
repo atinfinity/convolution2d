@@ -11,6 +11,6 @@ endif()
 
 if(OpenCV_FOUND)
 	include_directories(${OpenCV_INCLUDE_DIRS})
-	add_executable(convolution2d ${SOURCES})
-	target_link_libraries(convolution2d ${OpenCV_LIBS})
+	add_executable(${PROJECT_NAME} ${SOURCES})
+	target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 endif(OpenCV_FOUND)
