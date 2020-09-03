@@ -25,8 +25,8 @@ if(CUDA_FOUND)
 		CUDA_INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
 		include_directories(${OpenCV_INCLUDE_DIRS})
 
-		CUDA_ADD_EXECUTABLE(convolution2d ${SOURCES})
+		CUDA_ADD_EXECUTABLE(${PROJECT_NAME} ${SOURCES})
 
-		target_link_libraries(convolution2d ${OpenCV_LIBS})
+		target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 	endif(OpenCV_FOUND)
 endif(CUDA_FOUND)
